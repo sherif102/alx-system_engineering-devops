@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Displays a custom ls
-for i in $(ls)
+for i in *
 do
-	echo "$i"
-	sed
+	echo "${i//$*[0-9]-/}" 
 done

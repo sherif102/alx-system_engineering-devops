@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displays a custom ls
+for i in $(ls)
+do
+	echo "$i"
+	sed
+done

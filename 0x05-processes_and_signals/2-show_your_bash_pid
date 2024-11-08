@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Displays bash pid
-ps -au | grep "bash"
+# shellcheck disable=SC2009
+ps -auxf | grep "bash"

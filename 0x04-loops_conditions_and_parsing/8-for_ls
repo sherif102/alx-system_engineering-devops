@@ -2,5 +2,5 @@
 # Displays a custom ls
 for i in *
 do
-	echo "${i//$*[0-9a-z]-/}" 
+	echo "${i//$*[0-9a-zA-Z]-/}" 
 done

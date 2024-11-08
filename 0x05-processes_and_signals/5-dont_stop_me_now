@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Kill a process
+kill $(pidof bash)

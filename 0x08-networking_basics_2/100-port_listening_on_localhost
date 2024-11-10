@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# listens on localhost and port 98
+telnet localhost 80

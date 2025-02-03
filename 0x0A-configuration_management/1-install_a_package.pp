@@ -1,10 +1,10 @@
 # install a package flask from pip3
-package { ['flask', 'werkzeug']:
+package { 'flask':
     ensure   => '2.1.0',
     provider => 'pip3',
 }
 
-exec { 'install_compatible_wekzeug':
-    command => 'pip3 install "Werkzeug<2.1"',
-    unless  => 'pip3 list | grep Werkzeug | grep 2.0',
+package { 'werkzeug':
+    ensure   => '2.0.3',
+    provider => 'pip3',
 }

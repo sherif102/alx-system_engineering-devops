@@ -1,13 +1,6 @@
 # setup an ssh configuration file named ~/.ssh/school
-file { '/home/ubuntu/.ssh/ssh_config':
+file { '${HOME}/.ssh/ssh_config':
     ensure  => 'file',
     mode    => '0600',
-    content => @("END"),
-Host 525397-web-01
-    HostName 54.175.225.156
-    User ubuntu
-    IdentityFile ~/.ssh/school
-    IdentitiesOnly yes
-    PasswordAuthentication no
-END
+    content => 'Host 525397-web-01\n\tHostName 54.175.225.156\n\tUser ubuntu\n\tIdentityFile ~/.ssh/school\n\tIdentitiesOnly yes\n\tPasswordAuthentication no',
 }

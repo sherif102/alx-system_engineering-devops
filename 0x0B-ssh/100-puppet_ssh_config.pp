@@ -1,5 +1,5 @@
 # setup an ssh configuration file named ~/.ssh/school
-file { '/home/ubuntu/.ssh/school':
+file { '/home/ubuntu/.ssh/ssh_config':
     ensure  => 'file',
     mode    => '0600',
     content => @("END"),

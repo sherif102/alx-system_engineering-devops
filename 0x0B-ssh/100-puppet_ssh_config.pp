@@ -8,8 +8,8 @@ Host 525397-web-01
     PasswordAuthentication no
 END
 
-file { 'ssh_config':
+file { '${::home}/.ssh/school':
     ensure  => 'file',
-    path    => '~/.ssh/school',
-    content => inline_template($text),
+    mode    => '0600',
+    content => $text,
 }

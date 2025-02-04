@@ -11,5 +11,5 @@ END
 file { '${::home}/.ssh/school':
     ensure  => 'file',
     mode    => '0600',
-    content => $text,
+    content => inline_template($text),
 }

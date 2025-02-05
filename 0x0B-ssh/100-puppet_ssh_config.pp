@@ -1,12 +1,17 @@
-# setup an ssh configuration file named ~/.ssh/school
-file { '${HOME}/.ssh':
-    ensure => 'directory',
-    mode    => '0700',
+# setup an ssh configuration file
+file { '/etc/ssh/ssh_config':
+    ensure => 'file',
+    mode   => '0644',
 }
 
-file { '${HOME}/.ssh/ssh_config':
-    ensure  => 'file',
-    mode    => '0600',
-    content => 'Host 525397-web-01\n\tHostName 54.175.225.156\n\tUser ubuntu\n\tIdentityFile ~/.ssh/school\n\tIdentitiesOnly yes\n\tPasswordAuthentication no',
-    require => File['${HOME}/.ssh'],
+augeas { '/etc/ssh/ssh_config':
+    context => '/files/etc/ssh/ssh_config',
+    changes => [
+    'set Host[. = "525397-web-01"]',
+    'set Host/HostName "54.175.225.156"',
+    'set Host/User "ubuntu"',
+    'set Host/IdentityFile "~/.ssh/school"',
+    'set Host/IdentitiesOnly "yes"',
+    'set Host/PasswordAuthentication "no"',
+  ],
 }

@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
 # configures nginx for custom 404 message
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Ceci n'est pas une page" > 404-error.html
+sudo mv 404-error.html /var/www/html/
+sudo cp /etc/nginx/sites-available/default ./
+sudo sed -i "/server_name _/a\
+        error_page 404 /404-error.html;" default
+sudo mv default /etc/nginx/sites-available/
+sudo service nginx restart

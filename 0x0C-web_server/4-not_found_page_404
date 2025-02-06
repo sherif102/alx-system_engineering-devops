@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# configures nginx for custom 404 message

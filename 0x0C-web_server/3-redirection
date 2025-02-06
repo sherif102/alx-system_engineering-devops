@@ -2,8 +2,10 @@
 # configure a redirection on Nginx server
 #sudo apt-get -y install nginx
 #ufw allow 'Nginx HTTP'
-echo "Redirection of 301" > redirect_me
+echo "Redirected" > redirect_me
 sudo mv redirect_me /var/www/html/
+sudo cp /etc/nginx/sites-available/default ./
 sudo sed -i "/:80 default_server;/a\
-        rewrite ^/redirect_me shafam.com permanent;" /etc/nginx/sites-available/default
+        rewrite ^/redirect_me shafam.com permanent;" default
+sudo mv default /etc/nginx/sites-available/
 sudo service nginx restart

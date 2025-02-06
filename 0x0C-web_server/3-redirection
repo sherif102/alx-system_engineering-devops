@@ -4,6 +4,6 @@
 #ufw allow 'Nginx HTTP'
 echo "Redirection of 301" > redirect_me
 sudo mv redirect_me /var/www/html/
-sudo sed -i '/:80 default_server;/a\
-        rewrite ^/redirect_me shafam.com permanent;' /etc/nginx/sites-available/default
+sudo sed -i "/:80 default_server;/a\
+        rewrite ^/redirect_me shafam.com permanent;" /etc/nginx/sites-available/default
 sudo service nginx restart

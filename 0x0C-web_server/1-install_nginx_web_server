@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# a script that setup an nginx server
+sudo apt-get -y install nginx
+echo "Hello World!" > index.html
+sudo mv index.html /var/www/html/

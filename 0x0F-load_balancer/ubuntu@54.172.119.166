@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# a script that setup nginx server and added a custom header
-sudo apt update
-sudo apt -y install nginx
-sudo ufw allow 'Nginx HTTP'
-echo "Hello World!" > index.html
-sudo mv index.html /var/www/html/
-sudo sed -i '/location \/ {/a\add_heaer X-Served-By "$hostname";' /etc/nginx/sites-available/default
-sudo service nginx restart

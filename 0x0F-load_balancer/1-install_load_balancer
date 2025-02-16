@@ -16,4 +16,4 @@ backend http_back
     server 525397-web-02 54.172.119.166:80 check
 EOF
 
-sudo service haproxy restart
+sudo service haproxy start

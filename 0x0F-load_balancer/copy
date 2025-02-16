@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # a script that install a load balancer
 sudo apt update
-sudo apt -y install haproxy
-sudo sed -i '$a\ENABLED=1' /etc/default/haproxy
+if ! command -v haproxy &> /dev/null; then
+    sudo apt -y install haproxy
+fi
+if ! grep -q '^ENABLED=1$' /etc/default/haproxy; then
+    sudo sed -i '$a\ENABLED=1' /etc/default/haproxy
+fi
 sudo cp /etc/haproxy/haproxy.cfg{,.original}
 sudo tee -a /etc/haproxy/haproxy.cfg <<EOF
 

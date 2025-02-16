@@ -15,5 +15,5 @@ backend http_back
     server 525397-web-01 100.26.210.231:80 check
     server 525397-web-02 54.172.119.166:80 check
 EOF
-sudo service restart haproxy
-sudo systemctl restart haproxy
+
+sudo service haproxy restart

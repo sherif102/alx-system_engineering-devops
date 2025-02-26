@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# scripts that displays information about subdomain provided
+
+domain=$1
+
+subdomain=${2:-"www"}
+
+get_dns_info () {
+    record_type=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION" | awk '/shafam.tech/ { print $4 }')
+    destination=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION" | awk '/shafam.tech/ { print $5 }')
+    echo "The subdomain $2 is a $record_type record and points to $destination"
+}
+
+if [ -z "$2" ]; then
+    for i in \
+        www \
+        lb-01 \
+        web-01 \
+        web-02 
+    do
+        get_dns_info "$domain" "$i"
+    done
+else
+    get_dns_info "$domain" "$subdomain"
+fi

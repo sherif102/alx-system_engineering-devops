@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # a script that setup nginx server and added a custom header
-sudo apt update
-sudo apt -y install nginx
+if ! command nginx &> /dev/null; then
+	sudo apt update
+	sudo apt -y install nginx
+fi
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" > index.html
 sudo mv index.html /var/www/html/

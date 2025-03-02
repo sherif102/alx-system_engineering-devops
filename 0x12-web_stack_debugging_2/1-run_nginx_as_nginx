@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 # run nginx as nginx
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+chmod 644 /etc/nginx/nginx.conf
 sudo sed -i "0,/server {/s/server {/server { \n    listen *:8080;/" /etc/nginx/sites-available/default
-sudo -u nginx nginx service nginx restart
+sudo -u nginx service nginx restart

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# run nginx as nginx
+sudo sed -i "0,/server {/s/server {/server { \n    listen *:8080;/" /etc/nginx/sites-available/default
+sudo -u www-data nginx service nginx restart

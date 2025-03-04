@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# generates backup from mysql and compress
+sudo mysqldump -u root -p --all-databases | sudo tee backup.sql
+tar -czf "$(date +%d-%m-%Y).tar.gz" backup.sql

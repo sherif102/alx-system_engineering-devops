@@ -19,7 +19,7 @@ def todo_getter(employee_id):
 
     with open(f'{employee_id}.csv', 'w') as file:
         for task in todos:
-            data = '"{}", "{}", "{}", "{}"\n'.format(
+            data = '"{}","{}","{}","{}"\n'.format(
                 task['userId'],
                 employee_name,
                 task['completed'],

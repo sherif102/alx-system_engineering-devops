@@ -26,7 +26,7 @@ def todo_getter(employee_id):
             task_done_list.append(task['title'])
         total_number_of_tasks += 1
 
-    print(f'Employee {employee_name} is done with tasks '
+    print(f'Employee {employee_name} is done with tasks'
           f'({number_of_done_tasks}/{total_number_of_tasks}):')
 
     for task in task_done_list:

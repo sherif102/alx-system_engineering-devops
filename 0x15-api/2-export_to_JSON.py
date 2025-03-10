@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""getting data from an API and export it to CSV"""
+"""getting data from an API and export it to JSON"""
 
 import json
 from sys import argv
@@ -16,16 +16,19 @@ def todo_getter(employee_id):
 
     todos = json.loads(todos.read().decode('utf-8'))
     employee_name = eval(name_request.read().decode('utf-8'))['username']
+    employee_data = []
+
+    for task in todos:
+        employee_data.append({
+            "task": task['title'],
+            "completed": task["completed"],
+            "username": employee_name,
+        })
+
+    data = {f'{employee_id}': employee_data}
 
     with open(f'{employee_id}.json', 'w') as file:
-        for task in todos:
-            data = '"{}","{}","{}","{}"\n'.format(
-                task['userId'],
-                employee_name,
-                task['completed'],
-                task['title']
-            )
-            file.write(data)
+        json.dump(data, file)
 
 
 if __name__ == "__main__":

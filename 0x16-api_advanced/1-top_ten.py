@@ -4,7 +4,7 @@ import requests
 
 
 def top_ten(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}.json"
+    url = f"https://www.reddit.coms/r/{subreddit}.json"
     h = {'User-Agent': 'local'}
     request = requests.get(url, allow_redirects=False, headers=h)
     if request.status_code != 200:

@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """api advanced project"""
-import requests
 import re
+import requests
 
 
 def count_words(subreddit, word_list, counter=0, hot_list=[]):
